@@ -7,6 +7,6 @@ module Avalara
     autoload :Invoice, 'avalara/request/invoice'
     autoload :Line, 'avalara/request/line'
     autoload :Message, 'avalara/request/message'
-    autoload :VOIDDOC, 'avalara/request/void_doc'
+    autoload :VoidDoc, 'avalara/request/void_doc'
   end
 end
