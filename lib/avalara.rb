@@ -150,12 +150,12 @@ module Avalara
     else
       raise ApiError.new(response)
     end
-    rescue Timeout::Error => e
-      raise TimeoutError.new(e)
-    rescue ApiError => e
-      raise e
-    rescue Exception => e
-      raise Error.new(e)
+  rescue Timeout::Error => e
+    raise TimeoutError.new(e)
+  rescue ApiError => e
+    raise e
+  rescue Exception => e
+    raise Error.new(e)
   end
 
   def self.validate_address(address_hash)
