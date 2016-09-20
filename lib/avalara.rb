@@ -142,20 +142,21 @@ module Avalara
         :basic_auth => authentication
       }.merge!(net_settings)
     )
-    case response.code
-    when 200..299
-      Response::VoidDoc.new(response)
-    when 400..599
-      raise ApiError.new(Response::VoidDoc.new(response))
-    else
-      raise ApiError.new(response)
-    end
-  rescue Timeout::Error => e
-    raise TimeoutError.new(e)
-  rescue ApiError => e
-    raise e
-  rescue Exception => e
-    raise Error.new(e)
+    response
+  #   case response.code
+  #   when 200..299
+  #     Response::VoidDoc.new(response)
+  #   when 400..599
+  #     raise ApiError.new(Response::VoidDoc.new(response))
+  #   else
+  #     raise ApiError.new(response)
+  #   end
+  # rescue Timeout::Error => e
+  #   raise TimeoutError.new(e)
+  # rescue ApiError => e
+  #   raise e
+  # rescue Exception => e
+  #   raise Error.new(e)
   end
 
   def self.validate_address(address_hash)
