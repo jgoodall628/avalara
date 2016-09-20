@@ -6,7 +6,9 @@ module Avalara
     class VoidDoc < Avalara::Types::Stash
       # Set outgoing
       property :CancelCode, :from => :cancel_code
-      property :DocId, :from => :doc_id
+      property :CompanyCode, :from => :company_code
+      property :DocType, :from => :doc_type
+      property :DocCode, :from => :doc_code
 
       def to_json
         MultiJson.encode(self.to_hash, :pretty => true)
