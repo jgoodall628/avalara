@@ -156,7 +156,6 @@ module Avalara
       raise e
     rescue Exception => e
       raise Error.new(e)
-    end
   end
 
   def self.validate_address(address_hash)
