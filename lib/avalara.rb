@@ -131,17 +131,14 @@ module Avalara
     raise Error.new(e)
   end
 
-  def self.cancel(doc_id)
+  def self.cancel(void_doc)
     uri = [endpoint, version, 'tax', 'cancel'].join('/')
 
     response = API.post(
       uri,
       {
-        :body => {
-          cancelCode: "DocDeleted",
-          docId: doc_id
-        },
-        :headers => API.headers_for(invoice.to_json.length),
+        :body => void_doc.to_json,
+        :headers => API.headers_for(void_doc.to_json.length),
         :basic_auth => authentication
       }.merge!(net_settings)
     )
